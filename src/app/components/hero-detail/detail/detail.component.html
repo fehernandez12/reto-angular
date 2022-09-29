@@ -1,0 +1,111 @@
+<app-navbar></app-navbar>
+<div class="row mt-5">
+  <div class="col-sm-12 col-lg-4">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <img
+          src="{{ hero.images!.md }}"
+          alt="{{ hero.slug }}"
+          class="card-img-top"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ hero.name }}</h5>
+          <p class="card-text">{{ hero.work!.occupation }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Intelligence: </strong
+            ><span
+              class="text-{{ getStatClass(hero.powerstats!.intelligence) }}"
+              >{{ hero.powerstats!.intelligence }}</span
+            >
+          </li>
+          <li class="list-group-item">
+            <strong>Strength: </strong
+            ><span class="text-{{ getStatClass(hero.powerstats!.strength) }}">{{
+              hero.powerstats!.strength
+            }}</span>
+          </li>
+          <li class="list-group-item">
+            <strong>Speed: </strong
+            ><span class="text-{{ getStatClass(hero.powerstats!.speed) }}">{{
+              hero.powerstats!.speed
+            }}</span>
+          </li>
+          <li class="list-group-item">
+            <strong>Durability: </strong
+            ><span
+              class="text-{{ getStatClass(hero.powerstats!.durability) }}"
+              >{{ hero.powerstats!.durability }}</span
+            >
+          </li>
+          <li class="list-group-item">
+            <strong>Power: </strong
+            ><span class="text-{{ getStatClass(hero.powerstats!.power) }}">{{
+              hero.powerstats!.power
+            }}</span>
+          </li>
+          <li class="list-group-item">
+            <strong>Combat: </strong
+            ><span class="text-{{ getStatClass(hero.powerstats!.combat) }}">{{
+              hero.powerstats!.combat
+            }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-lg-4 border-end">
+    <h5>Biography</h5>
+    <hr />
+    <p><strong>Full name: </strong>{{ hero.biography?.fullName }}</p>
+    <p><strong>Alter egos: </strong>{{ hero.biography?.alterEgos }}</p>
+    <p>
+      <strong>Aliases: </strong>
+      <span *ngFor="let alias of hero.biography?.aliases; last as isLast">
+        {{ alias }}<span *ngIf="!isLast">, </span>
+      </span>
+    </p>
+    <p><strong>Place of birth: </strong>{{ hero.biography?.placeOfBirth }}</p>
+    <p>
+      <strong>First appearance: </strong>{{ hero.biography?.firstAppearance }}
+    </p>
+    <p><strong>Publisher: </strong>{{ hero.biography?.publisher }}</p>
+    <p class="mb-5">
+      <strong>Alignment: </strong>{{ hero.biography?.alignment | titlecase }}
+    </p>
+    <h5>Work</h5>
+    <hr />
+    <p><strong>Occupation: </strong>{{ hero.work?.occupation }}</p>
+    <p><strong>Base: </strong>{{ hero.work?.base }}</p>
+  </div>
+  <div class="col-sm-12 col-lg-4">
+    <h5>Appearance</h5>
+    <hr />
+    <p><strong>Gender: </strong>{{ hero.appearance?.gender }}</p>
+    <p><strong>Race: </strong>{{ hero.appearance?.race }}</p>
+    <p>
+      <strong>Height: </strong>
+      <span *ngFor="let item of hero.appearance?.height; last as isLast">
+        {{ item }}<span *ngIf="!isLast"> - </span>
+      </span>
+    </p>
+    <p>
+      <strong>Weight: </strong>
+      <span *ngFor="let item of hero.appearance?.weight; last as isLast">
+        {{ item }}<span *ngIf="!isLast"> - </span>
+      </span>
+    </p>
+    <p><strong>Eye color: </strong>{{ hero.appearance?.eyeColor }}</p>
+    <p class="mb-5">
+      <strong>Hair color: </strong>{{ hero.appearance?.hairColor }}
+    </p>
+    <h5>Connections</h5>
+    <hr />
+    <p>
+      <strong>Group affiliation: </strong
+      >{{ hero.connections?.groupAffiliation }}
+    </p>
+    <p><strong>Relatives: </strong>{{ hero.connections?.relatives }}</p>
+  </div>
+</div>

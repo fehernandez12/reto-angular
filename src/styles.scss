@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Lato&display=swap');
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+// Border Radius
+$border-radius: .1875rem;
+$border-radius-sm:            .125rem !default;
+$border-radius-lg:            .25rem !default;
+$border-radius-xl:            .5rem !default;
+$border-radius-2xl:           1rem !default;
+$border-radius-pill:          25rem !default;
+
+// Colors
+$white: #fefefe;
+
+$font-family-base: 'Lato', sans-serif;
+$font-family-code: 'Bungee Spice', cursive;
+$font-family-monospace: 'Bungee Spice', cursive;
+
+@import "../node_modules/bootstrap/scss/variables";
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
