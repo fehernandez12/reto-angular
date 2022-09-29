@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Hero } from 'src/app/models/hero';
 import { HeroService } from 'src/app/services/hero.service';
+import { getStatClass } from 'src/app/constants/constants';
 
 @Component({
   selector: 'app-detail',
@@ -10,22 +11,14 @@ import { HeroService } from 'src/app/services/hero.service';
 })
 export class DetailComponent implements OnInit {
   hero: Hero;
+  getStatClass: Function;
 
   constructor(
     private heroService: HeroService,
     private activatedRoute: ActivatedRoute
   ) {
     this.hero = {};
-  }
-
-  getStatClass(stat: number): string {
-    if (stat <= 33) {
-      return 'danger';
-    } else if (stat > 34 && stat <= 66) {
-      return 'warning';
-    } else {
-      return 'success';
-    }
+    this.getStatClass = getStatClass;
   }
 
   ngOnInit(): void {

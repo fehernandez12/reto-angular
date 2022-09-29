@@ -26,13 +26,23 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              <strong>Intelligence: </strong>{{ hero.powerstats!.intelligence }}
+              <strong>Intelligence: </strong
+              ><span
+                class="text-{{ getStatClass(hero.powerstats!.intelligence) }}"
+                >{{ hero.powerstats!.intelligence }}</span
+              >
             </li>
             <li class="list-group-item">
-              <strong>Speed: </strong>{{ hero.powerstats!.speed }}
+              <strong>Speed: </strong
+              ><span class="text-{{ getStatClass(hero.powerstats!.speed) }}">{{
+                hero.powerstats!.speed
+              }}</span>
             </li>
             <li class="list-group-item">
-              <strong>Power: </strong>{{ hero.powerstats!.power }}
+              <strong>Power: </strong
+              ><span class="text-{{ getStatClass(hero.powerstats!.power) }}">{{
+                hero.powerstats!.power
+              }}</span>
             </li>
             <li class="list-group-item">
               <strong>Gender: </strong>{{ hero.appearance!.gender }}

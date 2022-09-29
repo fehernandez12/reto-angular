@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from 'src/app/models/hero';
 import { HeroService } from 'src/app/services/hero.service';
+import { getStatClass } from 'src/app/constants/constants';
 
 @Component({
   selector: 'app-list',
@@ -10,10 +11,12 @@ import { HeroService } from 'src/app/services/hero.service';
 export class ListComponent implements OnInit {
   loading: boolean;
   heroes: Hero[];
+  getStatClass: Function;
 
   constructor(private heroService: HeroService) {
     this.loading = true;
     this.heroes = [];
+    this.getStatClass = getStatClass;
   }
 
   async ngOnInit(): Promise<void> {
